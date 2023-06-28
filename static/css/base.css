@@ -1,0 +1,156 @@
+p {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.1em;
+    font-weight: 300;
+    line-height: 1.7em;
+    color: #fff;
+}
+
+a,
+a:hover,
+a:focus {
+    color: inherit;
+    text-decoration: none;
+    transition: all 0.3s;
+}
+
+label{
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.1em;
+    font-weight: 300;
+    line-height: 1.7em;
+    color: #fff;
+}
+
+/* ---------------------------------------------------
+    SIDEBAR STYLE
+----------------------------------------------------- */
+
+.wrapper {
+    display: flex;
+    width: 100%;
+    align-items: stretch;
+}
+
+#sidebar {
+    min-width: 200px;
+    max-width: 200px;
+    background: #1665a0;
+    transition: all 0.3s;
+}
+
+#sidebar .sidebar-header {
+    padding: 20px;
+    text-align: center;
+    background: #1665a0;
+}
+
+#sidebar .sidebar-header img {
+    margin: auto; /* Esto centra la imagen horizontalmente */
+    width: 80%; /* La imagen ocupa el 100% del ancho disponible */
+
+}
+
+#sidebar ul li a {
+    padding: 10px;
+    font-size: 1.1em;
+    display: block;
+}
+
+#sidebar ul li.active>a,
+a[aria-expanded="true"] {
+    color: #fff;
+    background: #1665a0;
+}
+
+.dropdown-toggle::after {
+    display: block;
+    position: absolute;
+    top: 50%;
+    right: 20px;
+    transform: translateY(-50%);
+}
+
+a[data-toggle="collapse"] {
+    position: relative;
+}
+
+#sidebar ul li a:hover {
+    color: #ffffff;
+    background: #5d92b6;
+}
+
+
+#sidebarCollapse{
+    display: none;
+    background-color: #1665a0;
+}
+
+.lisubmenu{
+    background-color: #494949;
+}
+
+.adornoli{
+    background-color: #FFFFFF;
+    width: 10px;
+}
+
+/* ---------------------------------------------------
+    CONTENT STYLE
+----------------------------------------------------- */
+
+#content {
+    background-color: #1665a0;
+    width: 100%;
+    min-height: 100vh;
+    transition: all 0.3s;
+}
+
+#thecontent{
+    border-radius: 15px 0px 0px 15px;
+    background-color: #FFFFFF;
+    width: 100%;
+    padding: 20px;
+    min-height: 100vh;
+    transition: all 0.3s;
+}
+
+#menuicon{
+    width: 15px;
+    height: 2px;
+    background-color: white;
+    margin: 3px;
+}
+
+#createbutton{
+    text-align: right;
+    margin-bottom: 10px;
+}
+
+/* ---------------------------------------------------
+    MEDIAQUERIES
+----------------------------------------------------- */
+
+@media (max-width: 768px) {
+    .wrapper{
+        overflow-y: hidden;
+        overflow-x: hidden;
+    }
+    #sidebar {
+        margin-left: -200px;
+    }
+    #sidebar.active {
+        margin-left: 0;
+    }
+    #sidebarCollapse {
+        display: block;
+    }
+    #createbutton {
+        text-align: left;
+    }
+    #thecontent{
+        border-radius: 15px 0px 0px 15px;
+    }
+    
+}
+

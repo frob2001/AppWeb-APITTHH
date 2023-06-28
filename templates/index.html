@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Aplicación web con Flask</title>
+</head>
+<body>
+    <h1>Iniciar sesión</h1>
+    <form action="/login" method="post">
+        <label for="usuario">Usuario:</label>
+        <input type="text" id="usuario" name="usuario" pattern="[0-9]+" maxlength="4" title="Solamente números" required><br><br>
+        <label for="contrasena">Contraseña:</label>
+        <input type="password" id="contrasena" name="contrasena" maxlength="5" required><br><br>
+        <label for="emisor">Selecciona un emisor:</label>
+        <select name="emisor" id="emisor">
+            {% for emisor in emisores[:-1] %}
+                <option value="{{ emisor['Codigo'] }}">{{ emisor['Codigo'] }}: {{ emisor['NombreEmisor'] }}</option>
+            {% endfor %}
+        </select>
+        <br>
+        <br>
+
+        <input type="submit" value="Iniciar sesión">
+    </form>
+</body>
+</html>

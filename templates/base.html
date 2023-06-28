@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %} {% endblock %}</title>
+    <link rel="shortcut icon" href="{{ url_for('static', filename='images/tthhLogo.png') }}">
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/base.css') }}">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
+    <link rel='stylesheet' href='https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css'>
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+<div class="wrapper">
+  <!-- Sidebar  -->
+  <nav id="sidebar">
+      <div class="sidebar-header">
+        <img src="{{ url_for('static', filename='images/tthhLogo.png') }}">
+      </div>
+
+      <ul class="list-unstyled">
+          <li>
+              <a style="color: white; text-decoration: none;" href="#"><i class="fas fa-cog"></i> Administración</a>
+          </li>
+
+          <li>
+            <a style="color: white; text-decoration: none;" href="#"><i class="fas fa-dollar-sign"></i> Centro de costos</a>
+          </li>
+
+          <!--
+            SUBMENUS
+          <li class="active" >
+            <a href="#homeSubmenu" style="color: white; text-decoration: none;" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Entradas</a>
+            <ul class="collapse list-unstyled" id="homeSubmenu">
+                <li class="lisubmenu">
+                  <a style="color: white; text-decoration: none;" href="/entradas_compras/"><i class="fas fa-shopping-cart"></i> Entradas por compras</a>
+                </li>
+                <li class="lisubmenu">
+                  <a style="color: white; text-decoration: none;" href="/entradas_devolucion/"><i class="fas fa-undo"></i> Entradas por devolución</a>
+                </li>
+                <li class="lisubmenu">
+                  <a style="color: white; text-decoration: none;" href="/entradas_sucursal/"><i class="fas fa-building"></i> Entradas por sucursal</a>
+                </li>
+            </ul>
+          </li>
+         -->
+          <li>
+              <a style="color: white; text-decoration: none;" href="/logout"><i class="fas fa-sign-out-alt"></i> Logout</a>
+          </li>
+      </ul>
+  </nav>
+
+    <div id="content">
+        <div id="thecontent">
+            <button type="button" id="sidebarCollapse" class="btn">
+                <span>
+                <div id="menuicon"></div>
+                <div id="menuicon"></div>
+                <div id="menuicon"></div>
+                </span>
+            </button>
+
+            {% block body %}
+            {% endblock %}
+
+        </div>
+    </div>
+</div>
+<script>
+  $(document).ready(function () {
+      $('#sidebarCollapse').on('click', function () {
+          $('#sidebar').toggleClass('active');
+      });
+  });
+</script>
+</body>
+</html>

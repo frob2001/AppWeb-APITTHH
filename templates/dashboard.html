@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+
+{% block title %} Dashboard {% endblock %}
+
+
+{% block body %}
+
+
+<div class="row">
+    <div class="col-sm-12 col-md-6">
+        <h1>{{ nombre_usuario }}</h1>
+    </div>
+    <div class="col-sm-12 col-md-6" id="createbutton">
+        <a href="/crear_producto/">
+            <button class="btn btn-lightGray float-end">Crear nuevo producto</button>
+          </a>
+    </div>
+</div>
+
+</div>
+
+
+
+{% endblock %}
