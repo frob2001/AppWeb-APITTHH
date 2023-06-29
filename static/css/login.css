@@ -1,0 +1,61 @@
+html,
+body {
+  height: 100%;
+}
+
+body {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding-top: 40px;
+  padding-bottom: 40px;
+  background-color: #1665a0;
+  background-image: url("/static/images/loginpic.png");
+  background-size: cover;
+  background-position: left center;
+  background-size: 70%;
+  background-repeat: no-repeat;
+}
+
+.form-signin {
+  max-width: 330px;
+  padding: 15px;
+  align-items: end;
+  margin-right: 100px;
+}
+
+.form-signin .form-floating:focus-within {
+  z-index: 2;
+}
+
+.form-signin input[type="email"] {
+  margin-bottom: -1px;
+
+}
+
+.form-signin input[type="password"] {
+  margin-bottom: 10px;
+}
+
+.logo{
+  width:240px; 
+  height:185px; 
+}
+
+
+
+@media (max-width: 768px) {
+    body {
+      justify-content: center;
+      background-image: none;
+    }
+  
+    .form-signin {
+      margin-right: 0px;
+    }
+    .logo{
+      width:200px; 
+      height:auto; 
+    }
+  }
+
