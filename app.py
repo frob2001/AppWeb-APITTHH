@@ -52,7 +52,6 @@ def dashboard():
     nombre_usuario = session.get('nombre_usuario', None)
     url_api = "http://apiservicios.ecuasolmovsa.com:3009/api/Varios/CentroCostosSelect"
     ccostos = obtener_datos_api(url_api)
-    print(ccostos)
     return render_template('dashboard.html', nombre_usuario=nombre_usuario, ccostos=ccostos)
 
 
@@ -61,6 +60,12 @@ def crear(codigo, descripcion):
     url_api = f"http://apiservicios.ecuasolmovsa.com:3009/api/Varios/CentroCostosInsert?codigocentrocostos={codigo}&descripcioncentrocostos={descripcion}"
     creado = obtener_datos_api(url_api)
     print(creado)
+    if creado[0]["Mensaje"] == 'El registro que desea ingresar ya existe':
+        nombre_usuario = session.get('nombre_usuario', None)
+        url_api = "http://apiservicios.ecuasolmovsa.com:3009/api/Varios/CentroCostosSelect"
+        ccostos = obtener_datos_api(url_api)
+        return render_template('dashboard.html', nombre_usuario=nombre_usuario, ccostos=ccostos, message="El centro ya existe")
+
     return redirect(url_for('dashboard'))
 
 
