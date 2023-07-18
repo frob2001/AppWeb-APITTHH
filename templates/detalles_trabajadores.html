@@ -1,0 +1,38 @@
+<!-- detalles_trabajadores.html -->
+{% extends 'base.html' %}
+
+{% block title %} Detalles del Trabajador {% endblock %}
+
+{% block body %}
+<h1>Detalles del Trabajador</h1>
+
+{% if trabajador %}
+<h2>Información personal</h2>
+    <ul>
+        <li>Identificación: {{ trabajador['Identificacion'] }}</li>
+        <li>Nombre completo: {{ trabajador['Apellido_Paterno'] }} {{ trabajador['Apellido_Materno'] }} {{ trabajador['Nombres'] }}</li>
+        <li>Dirección: {{ trabajador['Direccion'] }}</li>
+        <li>Contacto:
+            <ul>
+                <li>Teléfono fijo: {{ trabajador['Telefono_Fijo'] }}</li>
+                <li>Teléfono móvil: {{ trabajador['Telefono_Movil'] }}</li>
+            </ul>
+        </li>
+        <li>Genero: {{ trabajador['Genero'] }}</li>
+        <li>Nacimiento: {{ trabajador['FechaNacimiento'].split('T')[0] }}</li>
+        <li>Nro. Cuenta_Bancaria: {{ trabajador['Nro_Cuenta_Bancaria'] }}</li>
+        <li>Tipo cuenta: {{ cuenta }}</li>
+    </ul>    
+<h2>Información profesional</h2>
+    <ul>
+        <li>Tipo trabajador: {{ tipo_trabajador }}</li>    
+        <li>Ocupacion: {{ ocpation }}</li>
+        <li>Fecha de ingreso: {{ trabajador['FechaIngreso'].split('T')[0] }}</li>
+        <li>Fecha cese: {{ trabajador['FechaCese'].split('T')[0] }}</li>
+        <li>Nivel salarial: {{ nivel }}</li>
+        <li>Tipo contrato: {{ tipo_contrato }}</li>
+    </ul>
+{% else %}
+    <p>No se encontraron detalles para este trabajador.</p>
+{% endif %}
+{% endblock %}

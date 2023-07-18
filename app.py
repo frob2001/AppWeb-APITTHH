@@ -25,6 +25,7 @@ def login():
         usuario = request.form['usuario']
         contrasena = request.form['contrasena']
         emisor = int(request.form['emisor'])
+        session['emisor'] = emisor
 
         #Validacion de usuario con API    
         url_api = f"http://apiservicios.ecuasolmovsa.com:3009/api/Usuarios?usuario={usuario}&password={contrasena}"
@@ -77,7 +78,78 @@ def actualizar(codigo, descripcion):
     print(actualizado)
     return redirect(url_for('dashboard'))
 
+@app.route('/trabajadores', methods=['GET', 'POST'])
+def trabajadores():
+    nombre_usuario = session.get('nombre_usuario', None)
+    url_api = f"http://apiservicios.ecuasolmovsa.com:3009/api/Varios/TrabajadorSelect?sucursal={session['emisor']}"
+    traba = obtener_datos_api(url_api)
+    print(traba)
+    return render_template('trabajadores.html', nombre_usuario=nombre_usuario, traba=traba)
 
+@app.route('/detalles_trabajadores/<int:id_trabajador>', methods=['GET'])
+def detalles_trabajadores(id_trabajador):
+    url_api = f"http://apiservicios.ecuasolmovsa.com:3009/api/Varios/TrabajadorSelect?sucursal={session['emisor']}"
+    traba = obtener_datos_api(url_api)
+
+    # Buscar el trabajador por su ID en los datos obtenidos de la API
+    trabajador = next((item for item in traba if item['Id_Trabajador'] == id_trabajador), None)
+
+    if trabajador:
+        #Tipo de trabajdor
+        num = trabajador['Tipo_trabajador']
+        url_api = "http://apiservicios.ecuasolmovsa.com:3009/api/Varios/TipoTrabajador"
+        tipo = obtener_datos_api(url_api)
+
+        for item in tipo:
+            if item['Descripcion'] == num:
+                tipo_trabajador = item['Codigo']
+                break
+
+        #Ocupacion
+        ocu = trabajador['Codigo_Categoria_Ocupacion']
+        url_api = "http://apiservicios.ecuasolmovsa.com:3009/api/Varios/CategoriaOcupacional"
+        ocupa = obtener_datos_api(url_api)
+
+        for item in ocupa:
+            if item['Codigo'] == int(ocu):
+                ocpation = item['Descripcion']
+                break
+
+        #Nivel salarial
+        niv = trabajador['Nivel_Salarial']
+        url_api = "http://apiservicios.ecuasolmovsa.com:3009/api/Varios/NivelSalarial"
+        sal = obtener_datos_api(url_api)
+
+        for item in sal:
+            if item['Codigo'] == int(niv):
+                nivel = item['Descripcion']
+                break
+
+        #Tipo de contrato
+        con = trabajador['Tipo_Contrato']
+        url_api = "http://apiservicios.ecuasolmovsa.com:3009/api/Varios/TipoContrato"
+        tipoc = obtener_datos_api(url_api)
+
+        for item in tipoc:
+            if item['Codigo'] == str(con):
+                tipo_contrato = item['Descripcion']
+                break
+
+        #Tipo de cuenta
+        cue = trabajador['Tipo_Cuenta']
+        url_api = "http://apiservicios.ecuasolmovsa.com:3009/api/Varios/TipoCuenta"
+        cuentas = obtener_datos_api(url_api)
+        print(type(cue))
+        print(cuentas)
+
+        for item in cuentas:
+            if cue in item['Codigo']:
+                cuenta = item['Descripcion']
+                break
+        
+
+
+    return render_template('detalles_trabajadores.html', trabajador=trabajador, tipo_trabajador=tipo_trabajador, nivel=nivel, ocpation=ocpation, tipo_contrato=tipo_contrato, cuenta=cuenta)
 
 
 if __name__ == '__main__':
