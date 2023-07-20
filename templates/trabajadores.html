@@ -10,7 +10,7 @@
     </div>
     <div class="col-sm-12 col-md-6" id="createbutton">
         <button type="button" class="btn" data-toggle="modal" data-target="#createModal">
-            Crear selección
+            Crear trabajador
         </button>  
     </div>
 </div>
@@ -130,10 +130,80 @@ $(document).ready(function() {
                   <button type="button" class="close" data-dismiss="modal">&times;</button>
                 </div>
                 <div class="modal-body">
-                  <p class="text-dark">Código:</p>
-                  <input type="text" id="codigo_crear" name="codigo_crear" class="form-control" required>
-                  <p class="text-dark">Descripción:</p>
-                  <input type="text" id="descripcion_crear" name="descripcion_crear" class="form-control" required>
+                  <p class="text-dark">COMP_Codigo:</p>
+                  <input type="integer" id="COMP_Codigo" name="COMP_Codigo" class="form-control" required>
+                  <p class="text-dark">Tipo_trabajador:</p>
+                  <input type="text" id="Tipo_trabajador" name="Tipo_trabajador" class="form-control" required>
+                  <p class="text-dark">Apellido_Paterno:</p>
+                  <input type="text" id="Apellido_Paterno" name="Apellido_Paterno" class="form-control" required>
+                  <p class="text-dark">Apellido_Materno:</p>
+                  <input type="text" id="Apellido_Materno" name="Apellido_Materno" class="form-control" required>
+                  <p class="text-dark">Nombres:</p>
+                  <input type="text" id="Nombres" name="Nombres" class="form-control" required>
+                  <p class="text-dark">Identificacion:</p>
+                  <input type="text" id="Identificacion" name="Identificacion" class="form-control" required>
+                  <p class="text-dark">Entidad_Bancaria:</p>
+                  <input type="text" id="Entidad_Bancaria" name="Entidad_Bancaria" class="form-control" required>
+                  <p class="text-dark">CarnetIESS:</p>
+                  <input type="text" id="CarnetIESS" name="CarnetIESS" class="form-control" required>
+                  <p class="text-dark">Direccion:</p>
+                  <input type="text" id="Direccion" name="Direccion" class="form-control" required>
+                  <p class="text-dark">Telefono_Fijo:</p>
+                  <input type="text" id="Telefono_Fijo" name="Telefono_Fijo" class="form-control" required>
+                  <p class="text-dark">Telefono_Movil:</p>
+                  <input type="text" id="Telefono_Movil" name="Telefono_Movil" class="form-control" required>
+                  <p class="text-dark">Genero:</p>
+                  <input type="text" id="Genero" name="Genero" class="form-control" required>
+                  <p class="text-dark">Nro_Cuenta_Bancaria:</p>
+                  <input type="text" id="Nro_Cuenta_Bancaria" name="Nro_Cuenta_Bancaria" class="form-control" required>
+                  <p class="text-dark">Codigo_Categoria_Ocupacion:</p>
+                  <input type="integer" id="Codigo_Categoria_Ocupacion" name="Codigo_Categoria_Ocupacion" class="form-control" required>
+                  <p class="text-dark">Ocupacion:</p>
+                  <input type="integer" id="Ocupacion" name="Ocupacion" class="form-control" required>
+                  <p class="text-dark">Centro_Costos:</p>
+                  <input type="integer" id="Centro_Costos" name="Centro_Costos" class="form-control" required>
+                  <p class="text-dark">Nivel_Salarial:</p>
+                  <input type="integer" id="Nivel_Salarial" name="Nivel_Salarial" class="form-control" required>
+                  <p class="text-dark">EstadoTrabajador:</p>
+                  <input type="text" id="EstadoTrabajador" name="EstadoTrabajador" class="form-control" required>
+                  <p class="text-dark">Tipo_Contrato:</p>
+                  <input type="text" id="Tipo_Contrato" name="Tipo_Contrato" class="form-control" required>
+                  <p class="text-dark">Tipo_Cese:</p>
+                  <input type="text" id="Tipo_Cese" name="Tipo_Cese" class="form-control" required>
+                  <p class="text-dark">EstadoCivil:</p>
+                  <input type="text" id="EstadoCivil" name="EstadoCivil" class="form-control" required>
+                  <p class="text-dark">TipodeComision:</p>
+                  <input type="text" id="TipodeComision" name="TipodeComision" class="form-control" required>
+                  <p class="text-dark">FechaNacimiento:</p>
+                  <input type="date" id="FechaNacimiento" name="FechaNacimiento" class="form-control" required>
+                  <p class="text-dark">FechaIngreso:</p>
+                  <input type="date" id="FechaIngreso" name="FechaIngreso" class="form-control" required>
+                  <p class="text-dark">FechaCese:</p>
+                  <input type="date" id="FechaCese" name="FechaCese" class="form-control" required>
+                  <p class="text-dark">PeriododeVacaciones:</p>
+                  <input type="text" id="PeriododeVacaciones" name="PeriododeVacaciones" class="form-control" required>
+                  <p class="text-dark">FechaReingreso:</p>
+                  <input type="text" id="FechaReingreso" name="FechaReingreso" class="form-control" required>
+                  <p class="text-dark">Fecha_Ult_Actualizacion:</p>
+                  <input type="text" id="Fecha_Ult_Actualizacion" name="Fecha_Ult_Actualizacion" class="form-control" required>
+                  <p class="text-dark">EsReingreso:</p>
+                  <input type="text" id="EsReingreso" name="EsReingreso" class="form-control" required>
+                  <p class="text-dark">Tipo_Cuenta:</p>
+                  <input type="text" id="Tipo_Cuenta" name="Tipo_Cuenta" class="form-control" required>
+                  <p class="text-dark">FormaCalculo13ro:</p>
+                  <input type="integer" id="FormaCalculo13ro" name="FormaCalculo13ro" class="form-control" required>
+                  <p class="text-dark">FormaCalculo14ro:</p>
+                  <input type="integer" id="FormaCalculo14ro" name="FormaCalculo14ro" class="form-control" required>
+                  <p class="text-dark">BoniComplementaria:</p>
+                  <input type="integer" id="BoniComplementaria" name="BoniComplementaria" class="form-control" required>
+                  <p class="text-dark">BoniEspecial:</p>
+                  <input type="integer" id="BoniEspecial" name="BoniEspecial" class="form-control" required>
+                  <p class="text-dark">Remuneracion_Minima:</p>
+                  <input type="integer" id="Remuneracion_Minima" name="Remuneracion_Minima" class="form-control" required>
+                  <p class="text-dark">Fondo_Reserva:</p>
+                  <input type="text" id="Fondo_Reserva" name="Fondo_Reserva" class="form-control" required>
+                  <p class="text-dark">Mensaje:</p>
+                  <input type="text" id="Mensaje" name="Mensaje" class="form-control" required>
                 </div>
                 <div class="modal-footer">
                   <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
@@ -143,6 +213,7 @@ $(document).ready(function() {
         </div>
     </div>
   </div>
+
 
 <script>
 function enviarFormularioCrear() {

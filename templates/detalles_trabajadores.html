@@ -32,6 +32,9 @@
         <li>Nivel salarial: {{ nivel }}</li>
         <li>Tipo contrato: {{ tipo_contrato }}</li>
     </ul>
+    <td style="width:25px">
+        <a href="/eliminar_trabajador/{{ trabajador['Id_Trabajador'] }}" class="btn btn-danger">Eliminar</a>
+    </td>
 {% else %}
     <p>No se encontraron detalles para este trabajador.</p>
 {% endif %}
